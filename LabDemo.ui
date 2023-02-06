@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LabDemoClass</class>
+ <widget class="QMainWindow" name="LabDemoClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1700</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LabDemo</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1691</width>
+      <height>851</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="overallGridLayout" rowstretch="1,1" columnstretch="1,1">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1">
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="serverConfigTab">
+          <attribute name="title">
+           <string>服务器配置</string>
+          </attribute>
+          <widget class="QWidget" name="verticalLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>471</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QGroupBox" name="groupBox_3">
+              <property name="title">
+               <string/>
+              </property>
+              <widget class="QLabel" name="label_5">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>0</y>
+                 <width>54</width>
+                 <height>12</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>YOLO</string>
+               </property>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>10</y>
+                 <width>431</width>
+                 <height>51</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>IP</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="yoloIpLe"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>PORT</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="yoloPortLe"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="yoloServerConnectBtn">
+                  <property name="text">
+                   <string>连接</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="yoloConnectStatusLb">
+                  <property name="text">
+                   <string>未连接</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="title">
+               <string>手势</string>
+              </property>
+              <widget class="QLabel" name="label_2">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>0</y>
+                 <width>54</width>
+                 <height>12</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>10</y>
+                 <width>431</width>
+                 <height>51</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>IP</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="handIpLe"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>PORT</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="handPortLe"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="handServerConnectBtn">
+                  <property name="text">
+                   <string>连接</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="handConnectStatusLb">
+                  <property name="text">
+                   <string>未连接</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string/>
+              </property>
+              <widget class="QLabel" name="label">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>0</y>
+                 <width>54</width>
+                 <height>12</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>情绪</string>
+               </property>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget_3">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>10</y>
+                 <width>431</width>
+                 <height>73</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>IP</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="emoIpLe"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>PORT</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="emoPortLe"/>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="emoServerConnectBtn">
+                  <property name="text">
+                   <string>连接</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="emoConnectStatusLb">
+                  <property name="text">
+                   <string>未连接</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="webCamConfigTab">
+          <attribute name="title">
+           <string>网络摄像头配置</string>
+          </attribute>
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>100</x>
+             <y>50</y>
+             <width>311</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;YOLOY使用的海康威视网络摄像头配置&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+          <widget class="QWidget" name="gridLayoutWidget">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>100</y>
+             <width>216</width>
+             <height>103</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="webCamUserLe"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="webCamPwdLe"/>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="webCamIpLe"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>IP</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>密码</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_14">
+              <property name="text">
+               <string>用户名</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QPushButton" name="webCamConfigBtn">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>220</y>
+             <width>75</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>确认</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="yoloConfigTab">
+          <attribute name="title">
+           <string>YOLO配置</string>
+          </attribute>
+          <widget class="QWidget" name="gridLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>60</y>
+             <width>331</width>
+             <height>161</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="yoloSourceLe"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;conf阈值&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="yoloIouLe"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_16">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;图像源&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="yoloConfLe"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;iou阈值&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;显卡序号&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="yoloDeviceLe"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QPushButton" name="yoloStartBtn">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>250</y>
+             <width>75</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>开始</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="yoloStopBtn">
+           <property name="geometry">
+            <rect>
+             <x>300</x>
+             <y>250</y>
+             <width>75</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>停止</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="resultShowTe">
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;文本结果显示区域&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="handImgLb">
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(0, 0, 0)</string>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="yoloImgLb">
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(0, 0, 0)</string>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="emoImgLb">
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(0, 0, 0)</string>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1700</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>yoloIpLe</tabstop>
+  <tabstop>yoloPortLe</tabstop>
+  <tabstop>yoloServerConnectBtn</tabstop>
+  <tabstop>handIpLe</tabstop>
+  <tabstop>handPortLe</tabstop>
+  <tabstop>handServerConnectBtn</tabstop>
+  <tabstop>emoIpLe</tabstop>
+  <tabstop>emoPortLe</tabstop>
+  <tabstop>emoServerConnectBtn</tabstop>
+  <tabstop>webCamIpLe</tabstop>
+  <tabstop>webCamUserLe</tabstop>
+  <tabstop>webCamPwdLe</tabstop>
+  <tabstop>webCamConfigBtn</tabstop>
+  <tabstop>yoloSourceLe</tabstop>
+  <tabstop>yoloConfLe</tabstop>
+  <tabstop>yoloIouLe</tabstop>
+  <tabstop>yoloDeviceLe</tabstop>
+  <tabstop>yoloStartBtn</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
