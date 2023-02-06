@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package yolo_gRPC;
+
+service Communicate {
+    rpc check(NullMsg) returns(NullMsg) {}
+    rpc setYoloConf(YoloConfig) returns(NullMsg) {}
+    rpc stopYolo(NullMsg) returns(NullMsg) {}
+    rpc getYoloResult(NullMsg) returns(ResultList) {}
+    rpc getYoloImg(LabelSize) returns(YoloImg) {}
+}
+
+message NullMsg
+{}
+
+message YoloConfig {
+    string source = 1;
+    float conf_thres = 2;
+    float iou_thres = 3;
+    string device = 4;
+}
+
+message ResultList {
+    message Result
+    {
+        float x0 = 1;
+        float y0 = 2;
+        float x1 = 3;
+        float y1 = 4;
+        string label = 5;
+        float conf = 6;
+    }
+    repeated Result re_result = 1;
+}
+
+message LabelSize{
+    int32 w = 1;
+    int32 h = 2;
+}
+
+message YoloImg {
+    int32 w = 1;
+    int32 h = 2;
+    bytes imgBuffer = 3;
+}
+//python -m grpc_tools.protoc -I ./ --python_out=./ --grpc_python_out=./ gRPC/yolo_gRPC.proto
