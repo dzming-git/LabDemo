@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\gRPC">
+      <UniqueIdentifier>{4f896b94-bc07-44d2-a505-08a55274d851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gRPC\yolo">
+      <UniqueIdentifier>{bebc7516-6c8f-4071-8b07-2a879c721486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gRPC">
+      <UniqueIdentifier>{8ebe4f21-2329-4c52-a02d-9c93eafbdd5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gRPC\yolo">
+      <UniqueIdentifier>{5ae4a7d6-8e27-4aa3-bfc3-a3ec38fe7a75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="LabDemo.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="LabDemo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="LabDemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="LabDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gRPC\yolo\yolo_gRPC.grpc.pb.cc">
+      <Filter>Source Files\gRPC\yolo</Filter>
+    </ClCompile>
+    <ClCompile Include="gRPC\yolo\yolo_gRPC.pb.cc">
+      <Filter>Source Files\gRPC\yolo</Filter>
+    </ClCompile>
+    <ClCompile Include="yolo_gRPC_client.cpp">
+      <Filter>Source Files\gRPC\yolo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gRPC\yolo\yolo_gRPC.grpc.pb.h">
+      <Filter>Header Files\gRPC\yolo</Filter>
+    </ClInclude>
+    <ClInclude Include="gRPC\yolo\yolo_gRPC.pb.h">
+      <Filter>Header Files\gRPC\yolo</Filter>
+    </ClInclude>
+    <ClInclude Include="yolo_gRPC_client.h">
+      <Filter>Header Files\gRPC\yolo</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
