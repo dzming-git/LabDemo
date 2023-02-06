@@ -61,6 +61,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="emo_gRPC_client.cpp" />
+    <ClCompile Include="gRPC\emo\emo_gRPC.grpc.pb.cc" />
+    <ClCompile Include="gRPC\emo\emo_gRPC.pb.cc" />
     <ClCompile Include="yolo_gRPC_client.cpp" />
     <QtRcc Include="LabDemo.qrc" />
     <QtUic Include="LabDemo.ui" />
@@ -71,8 +74,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gRPC\emo\emo_gRPC.grpc.pb.h" />
+    <ClInclude Include="gRPC\emo\emo_gRPC.pb.h" />
     <ClInclude Include="gRPC\yolo\yolo_gRPC.grpc.pb.h" />
     <ClInclude Include="gRPC\yolo\yolo_gRPC.pb.h" />
+    <ClInclude Include="emo_gRPC_client.h" />
     <ClInclude Include="yolo_gRPC_client.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,9 +4,11 @@
 #include <QTimer>
 #include "ui_LabDemo.h"
 #include "yolo_gRPC_client.h"
+#include "emo_gRPC_client.h"
 
 struct Client {
     YoloCommunicateClient* yoloClient = nullptr;
+    EmoCommunicateClient* emoClient = nullptr;
 };
 
 class LabDemo : public QMainWindow {
@@ -19,6 +21,7 @@ public:
 private:
     void setTimer();
     void getYoloResult();
+    void getEmoResult();
 
 private slots:
     void on_yoloServerConnectBtn_clicked();
@@ -27,6 +30,8 @@ private slots:
     void on_webCamConfigBtn_clicked();
     void on_yoloStartBtn_clicked();
     void on_yoloStopBtn_clicked();
+    void on_emoStartBtn_clicked();
+    void on_emoStopBtn_clicked();
     void getResult();
     
 

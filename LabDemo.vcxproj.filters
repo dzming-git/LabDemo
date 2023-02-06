@@ -33,6 +33,12 @@
     <Filter Include="Source Files\gRPC\yolo">
       <UniqueIdentifier>{5ae4a7d6-8e27-4aa3-bfc3-a3ec38fe7a75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gRPC\emo">
+      <UniqueIdentifier>{5ee153ac-a6e2-4e19-b3a5-52c7df04e5d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gRPC\emo">
+      <UniqueIdentifier>{7d984bcf-1514-493e-a3eb-71b9115aad97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="LabDemo.qrc">
@@ -61,6 +67,15 @@
     <ClCompile Include="yolo_gRPC_client.cpp">
       <Filter>Source Files\gRPC\yolo</Filter>
     </ClCompile>
+    <ClCompile Include="emo_gRPC_client.cpp">
+      <Filter>Source Files\gRPC\emo</Filter>
+    </ClCompile>
+    <ClCompile Include="gRPC\emo\emo_gRPC.grpc.pb.cc">
+      <Filter>Source Files\gRPC\emo</Filter>
+    </ClCompile>
+    <ClCompile Include="gRPC\emo\emo_gRPC.pb.cc">
+      <Filter>Source Files\gRPC\emo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gRPC\yolo\yolo_gRPC.grpc.pb.h">
@@ -71,6 +86,15 @@
     </ClInclude>
     <ClInclude Include="yolo_gRPC_client.h">
       <Filter>Header Files\gRPC\yolo</Filter>
+    </ClInclude>
+    <ClInclude Include="emo_gRPC_client.h">
+      <Filter>Header Files\gRPC\emo</Filter>
+    </ClInclude>
+    <ClInclude Include="gRPC\emo\emo_gRPC.grpc.pb.h">
+      <Filter>Header Files\gRPC\emo</Filter>
+    </ClInclude>
+    <ClInclude Include="gRPC\emo\emo_gRPC.pb.h">
+      <Filter>Header Files\gRPC\emo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

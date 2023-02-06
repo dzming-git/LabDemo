@@ -60,6 +60,34 @@ void LabDemo::getYoloResult() {
     }
 }
 
+void LabDemo::getEmoResult() {
+    // 文本
+    if (nullptr == client.emoClient) return;
+    vector<EmoResult> results;
+    if (client.emoClient->getEmoResults(results)) {
+        QString content = "Emotion\n";
+        for (auto it = results.begin(); it < results.end(); it++) {
+            QString temp = QString("label:%1\nbbox:\n x0:%2\n y0:%3\n x1:%4\n y1:%5\n\n")
+                .arg(QString::fromStdString(it->label))
+                .arg(it->bbox[0])
+                .arg(it->bbox[1])
+                .arg(it->bbox[2])
+                .arg(it->bbox[3]);
+            content.append(temp);
+        }
+        ui.resultShowTe->textCursor().insertText(content);
+    }
+    // 图像
+    unsigned char* pBuffer = nullptr;
+    int w, h;
+    QSize labelSize = ui.emoImgLb->size();
+    if (client.emoClient->getEmoImg(pBuffer, w, h, labelSize.width(), labelSize.height())) {
+        QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
+        ui.emoImgLb->setPixmap(QPixmap::fromImage(qImg));
+        delete[] pBuffer;
+    }
+}
+
 void LabDemo::on_yoloServerConnectBtn_clicked() {
     string yoloServerIp = ui.yoloIpLe->text().toStdString();
     string yoloServerPort = ui.yoloPortLe->text().toStdString();
@@ -80,7 +108,18 @@ void LabDemo::on_handServerConnectBtn_clicked() {
 }
 
 void LabDemo::on_emoServerConnectBtn_clicked() {
-
+    string emoServerIp = ui.emoIpLe->text().toStdString();
+    string emoServerPort = ui.emoPortLe->text().toStdString();
+    if (nullptr == client.emoClient) {
+        client.emoClient = new EmoCommunicateClient;
+    }
+    if (false == client.emoClient->connect(emoServerIp, emoServerPort)) {
+        delete client.emoClient;
+        client.emoClient = nullptr;
+    }
+    else {
+        ui.emoConnectStatusLb->setText(QStringLiteral("已连接"));
+    }
 }
 
 void LabDemo::on_webCamConfigBtn_clicked() {
@@ -106,7 +145,17 @@ void LabDemo::on_yoloStopBtn_clicked() {
     client.yoloClient->stopYolo();
 }
 
+void LabDemo::on_emoStartBtn_clicked() {
+    EmoConfig emoConfig;
+    client.emoClient->setEmoConfig(emoConfig);
+}
+
+void LabDemo::on_emoStopBtn_clicked() {
+    client.emoClient->stopEmo();
+}
+
 void LabDemo::getResult() {
     ui.resultShowTe->clear();
     getYoloResult();
+    getEmoResult();
 }

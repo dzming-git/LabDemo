@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package emo_gRPC;
+
+service Communicate {
+    rpc check(NullMsg) returns(NullMsg) {}
+    rpc setEmoConf(EmoConfig) returns(NullMsg) {}
+    rpc stopEmo(NullMsg) returns(NullMsg) {}
+    rpc getEmoResult(NullMsg) returns(ResultList) {}
+    rpc getEmoImg(LabelSize) returns(EmoImg) {}
+}
+
+message NullMsg
+{}
+
+message EmoConfig {
+}
+
+message ResultList {
+    message Result
+    {
+        float x0 = 1;
+        float y0 = 2;
+        float x1 = 3;
+        float y1 = 4;
+        string label = 5;
+    }
+    repeated Result re_result = 1;
+}
+
+message LabelSize{
+    int32 w = 1;
+    int32 h = 2;
+}
+
+message EmoImg {
+    int32 w = 1;
+    int32 h = 2;
+    bytes imgBuffer = 3;
+}
+//python -m grpc_tools.protoc -I ./ --python_out=./ --grpc_python_out=./ gRPC/emo_gRPC.proto
