@@ -55,7 +55,7 @@ void LabDemo::getYoloResult() {
         // ±Ü¿ªopencvµÄÐ´·¨
         QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
         ui.yoloImgLb->setPixmap(QPixmap::fromImage(qImg));
-
+        ui.emoImgLb->setAlignment(Qt::AlignCenter);
         delete[] pBuffer;
     }
 }
@@ -84,6 +84,7 @@ void LabDemo::getEmoResult() {
     if (client.emoClient->getEmoImg(pBuffer, w, h, labelSize.width(), labelSize.height())) {
         QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
         ui.emoImgLb->setPixmap(QPixmap::fromImage(qImg));
+        ui.emoImgLb->setAlignment(Qt::AlignCenter);
         delete[] pBuffer;
     }
 }
@@ -108,6 +109,7 @@ void LabDemo::getHandResult() {
     if (client.handClient->getHandImg(pBuffer, w, h, labelSize.width(), labelSize.height())) {
         QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
         ui.handImgLb->setPixmap(QPixmap::fromImage(qImg));
+        ui.handImgLb->setAlignment(Qt::AlignCenter);
         delete[] pBuffer;
     }
 }
