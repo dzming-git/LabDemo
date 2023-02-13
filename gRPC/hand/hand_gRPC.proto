@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package hand_gRPC;
+
+service Communicate {
+    rpc check(NullMsg) returns(NullMsg) {}
+    rpc setHandConf(HandConfig) returns(NullMsg) {}
+    rpc stopHand(NullMsg) returns(NullMsg) {}
+    rpc getHandResult(NullMsg) returns(ResultList) {}
+    rpc getHandImg(LabelSize) returns(HandImg) {}
+}
+
+message NullMsg
+{}
+
+message HandConfig {
+}
+
+message ResultList {
+    message Result
+    {
+        string label = 1;
+    }
+    repeated Result re_result = 1;
+}
+
+message LabelSize{
+    int32 w = 1;
+    int32 h = 2;
+}
+
+message HandImg {
+    int32 w = 1;
+    int32 h = 2;
+    bytes imgBuffer = 3;
+}
+//python -m grpc_tools.protoc -I ./ --python_out=./ --grpc_python_out=./ gRPC/hand_gRPC.proto

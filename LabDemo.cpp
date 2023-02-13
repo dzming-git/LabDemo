@@ -88,6 +88,30 @@ void LabDemo::getEmoResult() {
     }
 }
 
+void LabDemo::getHandResult() {
+    // 文本
+    if (nullptr == client.handClient) return;
+    vector<HandResult> results;
+    if (client.handClient->getHandResults(results)) {
+        QString content = "Hand\n";
+        for (auto it = results.begin(); it < results.end(); it++) {
+            QString temp = QString("label:%1\n\n")
+                .arg(QString::fromStdString(it->label));
+            content.append(temp);
+        }
+        ui.resultShowTe->textCursor().insertText(content);
+    }
+    // 图像
+    unsigned char* pBuffer = nullptr;
+    int w, h;
+    QSize labelSize = ui.handImgLb->size();
+    if (client.handClient->getHandImg(pBuffer, w, h, labelSize.width(), labelSize.height())) {
+        QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
+        ui.handImgLb->setPixmap(QPixmap::fromImage(qImg));
+        delete[] pBuffer;
+    }
+}
+
 void LabDemo::on_yoloServerConnectBtn_clicked() {
     string yoloServerIp = ui.yoloIpLe->text().toStdString();
     string yoloServerPort = ui.yoloPortLe->text().toStdString();
@@ -104,7 +128,18 @@ void LabDemo::on_yoloServerConnectBtn_clicked() {
 }
 
 void LabDemo::on_handServerConnectBtn_clicked() {
-
+    string handServerIp = ui.handIpLe->text().toStdString();
+    string handServerPort = ui.handPortLe->text().toStdString();
+    if (nullptr == client.handClient) {
+        client.handClient = new HandCommunicateClient;
+    }
+    if (false == client.handClient->connect(handServerIp, handServerPort)) {
+        delete client.handClient;
+        client.handClient = nullptr;
+    }
+    else {
+        ui.handConnectStatusLb->setText(QStringLiteral("已连接"));
+    }
 }
 
 void LabDemo::on_emoServerConnectBtn_clicked() {
@@ -154,8 +189,18 @@ void LabDemo::on_emoStopBtn_clicked() {
     client.emoClient->stopEmo();
 }
 
+void LabDemo::on_handStartBtn_clicked() {
+    HandConfig handConfig;
+    client.handClient->setHandConfig(handConfig);
+}
+
+void LabDemo::on_handStopBtn_clicked() {
+    client.handClient->stopHand();
+}
+
 void LabDemo::getResult() {
     ui.resultShowTe->clear();
     getYoloResult();
     getEmoResult();
+    getHandResult();
 }

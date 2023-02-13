@@ -39,6 +39,12 @@
     <Filter Include="Source Files\gRPC\emo">
       <UniqueIdentifier>{7d984bcf-1514-493e-a3eb-71b9115aad97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\hand">
+      <UniqueIdentifier>{36f01b5f-a72a-47cd-8b1d-e80b16378f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hand">
+      <UniqueIdentifier>{e9d42fa5-dfcc-44e8-8dc7-a3f5e2827548}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="LabDemo.qrc">
@@ -76,6 +82,15 @@
     <ClCompile Include="gRPC\emo\emo_gRPC.pb.cc">
       <Filter>Source Files\gRPC\emo</Filter>
     </ClCompile>
+    <ClCompile Include="gRPC\hand\hand_gRPC.grpc.pb.cc">
+      <Filter>Source Files\hand</Filter>
+    </ClCompile>
+    <ClCompile Include="gRPC\hand\hand_gRPC.pb.cc">
+      <Filter>Source Files\hand</Filter>
+    </ClCompile>
+    <ClCompile Include="hand_gRPC_client.cpp">
+      <Filter>Source Files\hand</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gRPC\yolo\yolo_gRPC.grpc.pb.h">
@@ -95,6 +110,15 @@
     </ClInclude>
     <ClInclude Include="gRPC\emo\emo_gRPC.pb.h">
       <Filter>Header Files\gRPC\emo</Filter>
+    </ClInclude>
+    <ClInclude Include="gRPC\hand\hand_gRPC.grpc.pb.h">
+      <Filter>Header Files\hand</Filter>
+    </ClInclude>
+    <ClInclude Include="gRPC\hand\hand_gRPC.pb.h">
+      <Filter>Header Files\hand</Filter>
+    </ClInclude>
+    <ClInclude Include="hand_gRPC_client.h">
+      <Filter>Header Files\hand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
