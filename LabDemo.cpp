@@ -10,8 +10,19 @@ using namespace std;
 
 LabDemo::LabDemo(QWidget *parent): QMainWindow(parent) {
     ui.setupUi(this);
+
+    // 部分文本输入格式限制
     ui.yoloConfLe->setValidator(new QRegExpValidator(QRegExp("^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$")));
     ui.yoloIouLe->setValidator(new QRegExpValidator(QRegExp("^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$")));
+
+    // 文本结果显示区域字体设置
+    QString family = "黑体";
+    int pointSize = 12;
+    ui.yoloResultTe->setFont(QFont(family, pointSize));
+    ui.handResultTe->setFont(QFont(family, pointSize));
+    ui.emoResultTe->setFont(QFont(family, pointSize));
+
+    // 定时器
     setTimer();
 }
 
