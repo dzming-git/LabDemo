@@ -27,6 +27,7 @@ void LabDemo::setTimer() {
 void LabDemo::getYoloResult() {
     // 文本
     if (nullptr == client.yoloClient) return;
+    ui.yoloResultTe->clear();
     vector<YoloResult> results;
     if (client.yoloClient->getYoloResults(results)) {
         QString content = "YOLO\n";
@@ -40,7 +41,7 @@ void LabDemo::getYoloResult() {
                 .arg(it->conf);
             content.append(temp);
         }
-        ui.resultShowTe->textCursor().insertText(content);
+        ui.yoloResultTe->textCursor().insertText(content);
     }
     // 图像
     unsigned char* pBuffer = nullptr;
@@ -63,6 +64,7 @@ void LabDemo::getYoloResult() {
 void LabDemo::getEmoResult() {
     // 文本
     if (nullptr == client.emoClient) return;
+    ui.emoResultTe->clear();
     vector<EmoResult> results;
     if (client.emoClient->getEmoResults(results)) {
         QString content = "Emotion\n";
@@ -75,7 +77,7 @@ void LabDemo::getEmoResult() {
                 .arg(it->bbox[3]);
             content.append(temp);
         }
-        ui.resultShowTe->textCursor().insertText(content);
+        ui.emoResultTe->textCursor().insertText(content);
     }
     // 图像
     unsigned char* pBuffer = nullptr;
@@ -92,6 +94,7 @@ void LabDemo::getEmoResult() {
 void LabDemo::getHandResult() {
     // 文本
     if (nullptr == client.handClient) return;
+    ui.handResultTe->clear();
     vector<HandResult> results;
     if (client.handClient->getHandResults(results)) {
         QString content = "Hand\n";
@@ -100,7 +103,7 @@ void LabDemo::getHandResult() {
                 .arg(QString::fromStdString(it->label));
             content.append(temp);
         }
-        ui.resultShowTe->textCursor().insertText(content);
+        ui.handResultTe->textCursor().insertText(content);
     }
     // 图像
     unsigned char* pBuffer = nullptr;
@@ -201,7 +204,6 @@ void LabDemo::on_handStopBtn_clicked() {
 }
 
 void LabDemo::getResult() {
-    ui.resultShowTe->clear();
     getYoloResult();
     getEmoResult();
     getHandResult();
