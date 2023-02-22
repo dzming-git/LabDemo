@@ -45,7 +45,7 @@ void LabDemo::getYoloResult() {
     if (client.yoloClient->getYoloResults(results)) {
         QString content = "YOLO\n";
         for (auto it = results.begin(); it < results.end(); it++) {
-            QString temp = QString("label:%1\nbbox:\n x0:%2\n y0:%3\n x1:%4\n y1:%5\nconf:%6\n\n")
+            QString temp = QString("label:%1\nbbox:\n x0:%2\n y0:%3\n x1:%4\n y1:%5\nconf:%5\n\n")
                 .arg(QString::fromStdString(it->label))
                 .arg(it->bbox[0])
                 .arg(it->bbox[1])
@@ -62,12 +62,19 @@ void LabDemo::getYoloResult() {
     QSize labelSize = ui.yoloImgLb->size();
     if (client.yoloClient->getYoloImg(pBuffer, bufferSize, w, h, labelSize.width(), labelSize.height())) {
         // 将img_data作为输入字节数组
-        QByteArray inputBytes((char*)pBuffer, bufferSize);
+        QByteArray input_bytes((char*)pBuffer, bufferSize);
 
         // 使用QT解码图像数据流
         QImage image;
-        image.loadFromData((uchar*)inputBytes.data(), inputBytes.size());
+        image.loadFromData((uchar*)input_bytes.data(), input_bytes.size());
+        //QImage qImg = image.rgbSwapped();
+        //Mat img = Mat(h, w, CV_8UC3, pBuffer);
+        //cvtColor(img, img, cv::COLOR_BGR2RGB);
+        //QImage qImg = QImage((uchar*)img.data, w, h, img.step, QImage::Format_RGB888);
+        //ui.yoloImgLb->setPixmap(QPixmap::fromImage(qImg));
 
+        // 避开opencv的写法
+        //QImage qImg = QImage(pBuffer, w, h, 3 * w, QImage::Format_RGB888).rgbSwapped();
         ui.yoloImgLb->setPixmap(QPixmap::fromImage(image));
         ui.emoImgLb->setAlignment(Qt::AlignCenter);
         delete[] pBuffer;

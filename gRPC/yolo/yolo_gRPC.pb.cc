@@ -178,6 +178,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_yolo_5fgRPC_2eproto::offsets[]
   PROTOBUF_FIELD_OFFSET(::yolo_gRPC::YoloImg, w_),
   PROTOBUF_FIELD_OFFSET(::yolo_gRPC::YoloImg, h_),
   PROTOBUF_FIELD_OFFSET(::yolo_gRPC::YoloImg, imgbuffer_),
+  PROTOBUF_FIELD_OFFSET(::yolo_gRPC::YoloImg, buffersize_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::yolo_gRPC::NullMsg)},
@@ -205,16 +206,17 @@ const char descriptor_table_protodef_yolo_5fgRPC_2eproto[] =
   ".yolo_gRPC.ResultList.Result\032U\n\006Result\022\n"
   "\n\002x0\030\001 \001(\002\022\n\n\002y0\030\002 \001(\002\022\n\n\002x1\030\003 \001(\002\022\n\n\002y1"
   "\030\004 \001(\002\022\r\n\005label\030\005 \001(\t\022\014\n\004conf\030\006 \001(\002\"!\n\tL"
-  "abelSize\022\t\n\001w\030\001 \001(\005\022\t\n\001h\030\002 \001(\005\"2\n\007YoloIm"
+  "abelSize\022\t\n\001w\030\001 \001(\005\022\t\n\001h\030\002 \001(\005\"F\n\007YoloIm"
   "g\022\t\n\001w\030\001 \001(\005\022\t\n\001h\030\002 \001(\005\022\021\n\timgBuffer\030\003 \001"
-  "(\0142\252\002\n\013Communicate\0221\n\005check\022\022.yolo_gRPC."
-  "NullMsg\032\022.yolo_gRPC.NullMsg\"\000\022:\n\013setYolo"
-  "Conf\022\025.yolo_gRPC.YoloConfig\032\022.yolo_gRPC."
-  "NullMsg\"\000\0224\n\010stopYolo\022\022.yolo_gRPC.NullMs"
-  "g\032\022.yolo_gRPC.NullMsg\"\000\022<\n\rgetYoloResult"
-  "\022\022.yolo_gRPC.NullMsg\032\025.yolo_gRPC.ResultL"
-  "ist\"\000\0228\n\ngetYoloImg\022\024.yolo_gRPC.LabelSiz"
-  "e\032\022.yolo_gRPC.YoloImg\"\000b\006proto3"
+  "(\014\022\022\n\nbufferSize\030\004 \001(\0052\252\002\n\013Communicate\0221"
+  "\n\005check\022\022.yolo_gRPC.NullMsg\032\022.yolo_gRPC."
+  "NullMsg\"\000\022:\n\013setYoloConf\022\025.yolo_gRPC.Yol"
+  "oConfig\032\022.yolo_gRPC.NullMsg\"\000\0224\n\010stopYol"
+  "o\022\022.yolo_gRPC.NullMsg\032\022.yolo_gRPC.NullMs"
+  "g\"\000\022<\n\rgetYoloResult\022\022.yolo_gRPC.NullMsg"
+  "\032\025.yolo_gRPC.ResultList\"\000\0228\n\ngetYoloImg\022"
+  "\024.yolo_gRPC.LabelSize\032\022.yolo_gRPC.YoloIm"
+  "g\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_yolo_5fgRPC_2eproto_deps[1] = {
 };
@@ -229,7 +231,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_yol
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_yolo_5fgRPC_2eproto_once;
 static bool descriptor_table_yolo_5fgRPC_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_yolo_5fgRPC_2eproto = {
-  &descriptor_table_yolo_5fgRPC_2eproto_initialized, descriptor_table_protodef_yolo_5fgRPC_2eproto, "yolo_gRPC.proto", 671,
+  &descriptor_table_yolo_5fgRPC_2eproto_initialized, descriptor_table_protodef_yolo_5fgRPC_2eproto, "yolo_gRPC.proto", 691,
   &descriptor_table_yolo_5fgRPC_2eproto_once, descriptor_table_yolo_5fgRPC_2eproto_sccs, descriptor_table_yolo_5fgRPC_2eproto_deps, 6, 0,
   schemas, file_default_instances, TableStruct_yolo_5fgRPC_2eproto::offsets,
   file_level_metadata_yolo_5fgRPC_2eproto, 6, file_level_enum_descriptors_yolo_5fgRPC_2eproto, file_level_service_descriptors_yolo_5fgRPC_2eproto,
@@ -1947,6 +1949,7 @@ class YoloImg::HasBitSetters {
 const int YoloImg::kWFieldNumber;
 const int YoloImg::kHFieldNumber;
 const int YoloImg::kImgBufferFieldNumber;
+const int YoloImg::kBufferSizeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 YoloImg::YoloImg()
@@ -1963,8 +1966,8 @@ YoloImg::YoloImg(const YoloImg& from)
     imgbuffer_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.imgbuffer_);
   }
   ::memcpy(&w_, &from.w_,
-    static_cast<size_t>(reinterpret_cast<char*>(&h_) -
-    reinterpret_cast<char*>(&w_)) + sizeof(h_));
+    static_cast<size_t>(reinterpret_cast<char*>(&buffersize_) -
+    reinterpret_cast<char*>(&w_)) + sizeof(buffersize_));
   // @@protoc_insertion_point(copy_constructor:yolo_gRPC.YoloImg)
 }
 
@@ -1972,8 +1975,8 @@ void YoloImg::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_YoloImg_yolo_5fgRPC_2eproto.base);
   imgbuffer_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&w_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&h_) -
-      reinterpret_cast<char*>(&w_)) + sizeof(h_));
+      reinterpret_cast<char*>(&buffersize_) -
+      reinterpret_cast<char*>(&w_)) + sizeof(buffersize_));
 }
 
 YoloImg::~YoloImg() {
@@ -2002,8 +2005,8 @@ void YoloImg::Clear() {
 
   imgbuffer_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&w_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&h_) -
-      reinterpret_cast<char*>(&w_)) + sizeof(h_));
+      reinterpret_cast<char*>(&buffersize_) -
+      reinterpret_cast<char*>(&w_)) + sizeof(buffersize_));
   _internal_metadata_.Clear();
 }
 
@@ -2033,6 +2036,13 @@ const char* YoloImg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_imgbuffer(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 bufferSize = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          buffersize_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2103,6 +2113,19 @@ bool YoloImg::MergePartialFromCodedStream(
         break;
       }
 
+      // int32 bufferSize = 4;
+      case 4: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   ::PROTOBUF_NAMESPACE_ID::int32, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32>(
+                 input, &buffersize_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2146,6 +2169,11 @@ void YoloImg::SerializeWithCachedSizes(
       3, this->imgbuffer(), output);
   }
 
+  // int32 bufferSize = 4;
+  if (this->buffersize() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32(4, this->buffersize(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2174,6 +2202,11 @@ void YoloImg::SerializeWithCachedSizes(
     target =
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
         3, this->imgbuffer(), target);
+  }
+
+  // int32 bufferSize = 4;
+  if (this->buffersize() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->buffersize(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2218,6 +2251,13 @@ size_t YoloImg::ByteSizeLong() const {
         this->h());
   }
 
+  // int32 bufferSize = 4;
+  if (this->buffersize() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->buffersize());
+  }
+
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -2255,6 +2295,9 @@ void YoloImg::MergeFrom(const YoloImg& from) {
   if (from.h() != 0) {
     set_h(from.h());
   }
+  if (from.buffersize() != 0) {
+    set_buffersize(from.buffersize());
+  }
 }
 
 void YoloImg::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -2286,6 +2329,7 @@ void YoloImg::InternalSwap(YoloImg* other) {
     GetArenaNoVirtual());
   swap(w_, other->w_);
   swap(h_, other->h_);
+  swap(buffersize_, other->buffersize_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata YoloImg::GetMetadata() const {

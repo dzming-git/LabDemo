@@ -31,7 +31,7 @@ public:
 	bool setYoloConfig(YoloConfig config);
 	bool stopYolo();
 	bool getYoloResults(std::vector<YoloResult>& results);
-	bool getYoloImg(unsigned char*& pBuffer, int& imgW, int& imgH, int labelW, int labelH);
+	bool getYoloImg(unsigned char*& pBuffer, int& bufferSize, int& imgW, int& imgH, int labelW, int labelH);
 private:
 	std::unique_ptr<yolo_gRPC::Communicate::Stub> stub;
 };

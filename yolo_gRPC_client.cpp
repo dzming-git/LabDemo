@@ -70,7 +70,7 @@ bool YoloCommunicateClient::getYoloResults(std::vector<YoloResult>& results) {
 	return false;
 }
 
-bool YoloCommunicateClient::getYoloImg(unsigned char*& pBuffer, int& imgW, int& imgH, int labelW, int labelH) {
+bool YoloCommunicateClient::getYoloImg(unsigned char*& pBuffer, int& bufferSize, int& imgW, int& imgH, int labelW, int labelH) {
 	yolo_gRPC::LabelSize labelSize;
 	yolo_gRPC::YoloImg imgMsg;
 	grpc::ClientContext context;
@@ -81,10 +81,10 @@ bool YoloCommunicateClient::getYoloImg(unsigned char*& pBuffer, int& imgW, int& 
 	if (status.ok()) {
 		imgW = imgMsg.w();
 		imgH = imgMsg.h();
-		int dataCount = imgW * imgH * 3;
-		if(0 == dataCount) return false;
-		pBuffer = new unsigned char[dataCount];
-		memcpy(pBuffer, imgMsg.imgbuffer().c_str(), dataCount);
+		bufferSize = imgMsg.buffersize();
+		if(0 == bufferSize) return false;
+		pBuffer = new unsigned char[bufferSize];
+		memcpy(pBuffer, imgMsg.imgbuffer().c_str(), bufferSize);
 		return true;
 	}
 	return false;

@@ -42,5 +42,6 @@ message YoloImg {
     int32 w = 1;
     int32 h = 2;
     bytes imgBuffer = 3;
+    int32 bufferSize = 4;
 }
 //python -m grpc_tools.protoc -I ./ --python_out=./ --grpc_python_out=./ gRPC/yolo_gRPC.proto
